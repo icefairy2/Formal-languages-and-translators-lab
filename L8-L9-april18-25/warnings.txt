@@ -1,0 +1,312 @@
+y.tab.c: In function ‘yyparse’:
+y.tab.c:1182:16: warning: implicit declaration of function ‘yylex’ [-Wimplicit-function-declaration]
+       yychar = yylex ();
+                ^
+first.y:20:14: warning: passing argument 1 of ‘execute’ makes pointer from integer without a cast [-Wint-conversion]
+ prog : prog stmt                        {execute($2); freeall($2); }
+              ^
+In file included from first.y:15:0:
+first.h:28:5: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ int execute(struct nnode* n);
+     ^
+first.y:20:35: warning: passing argument 1 of ‘freeall’ makes pointer from integer without a cast [-Wint-conversion]
+ prog : prog stmt                        {execute($2); freeall($2); }
+                                   ^
+In file included from first.y:15:0:
+first.h:26:6: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ void freeall(struct nnode* n);
+      ^
+first.y:26:30: warning: passing argument 2 of ‘node’ makes pointer from integer without a cast [-Wint-conversion]
+      | WHILE '(' expr ')' stmt          { $$ =  node(WHILE, $3, $5); }
+                              ^
+In file included from first.y:15:0:
+first.h:22:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *node(int op, struct nnode* left, struct nnode* right);
+               ^
+first.y:26:43: warning: passing argument 3 of ‘node’ makes pointer from integer without a cast [-Wint-conversion]
+      | WHILE '(' expr ')' stmt          { $$ =  node(WHILE, $3, $5); }
+                                           ^
+In file included from first.y:15:0:
+first.h:22:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *node(int op, struct nnode* left, struct nnode* right);
+               ^
+first.y:26:15: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+      | WHILE '(' expr ')' stmt          { $$ =  node(WHILE, $3, $5); }
+               ^
+first.y:27:54: error: ‘NNULL’ undeclared (first use in this function)
+      | IF '(' expr ')' stmt %prec IFX   { $$ =  triple(IF, $3, $5, NNULL); }
+                                                      ^
+first.y:27:54: note: each undeclared identifier is reported only once for each function it appears in
+first.y:27:29: warning: passing argument 2 of ‘triple’ makes pointer from integer without a cast [-Wint-conversion]
+      | IF '(' expr ')' stmt %prec IFX   { $$ =  triple(IF, $3, $5, NNULL); }
+                             ^
+In file included from first.y:15:0:
+first.h:24:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *triple(int op, struct nnode* left, struct nnode* right, struct nnode* third);
+               ^
+first.y:27:42: warning: passing argument 3 of ‘triple’ makes pointer from integer without a cast [-Wint-conversion]
+      | IF '(' expr ')' stmt %prec IFX   { $$ =  triple(IF, $3, $5, NNULL); }
+                                          ^
+In file included from first.y:15:0:
+first.h:24:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *triple(int op, struct nnode* left, struct nnode* right, struct nnode* third);
+               ^
+first.y:28:29: warning: passing argument 2 of ‘triple’ makes pointer from integer without a cast [-Wint-conversion]
+      | IF '(' expr ')' stmt ELSE stmt   { $$ =  triple(IF, $3, $5, $7); }
+                             ^
+In file included from first.y:15:0:
+first.h:24:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *triple(int op, struct nnode* left, struct nnode* right, struct nnode* third);
+               ^
+first.y:28:42: warning: passing argument 3 of ‘triple’ makes pointer from integer without a cast [-Wint-conversion]
+      | IF '(' expr ')' stmt ELSE stmt   { $$ =  triple(IF, $3, $5, $7); }
+                                          ^
+In file included from first.y:15:0:
+first.h:24:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *triple(int op, struct nnode* left, struct nnode* right, struct nnode* third);
+               ^
+first.y:28:55: warning: passing argument 4 of ‘triple’ makes pointer from integer without a cast [-Wint-conversion]
+      | IF '(' expr ')' stmt ELSE stmt   { $$ =  triple(IF, $3, $5, $7); }
+                                                       ^
+In file included from first.y:15:0:
+first.h:24:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *triple(int op, struct nnode* left, struct nnode* right, struct nnode* third);
+               ^
+first.y:28:15: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+      | IF '(' expr ')' stmt ELSE stmt   { $$ =  triple(IF, $3, $5, $7); }
+               ^
+first.y:33:28: warning: passing argument 2 of ‘node’ makes pointer from integer without a cast [-Wint-conversion]
+          | stmt stmtlist                { $$ =  node(';', $1, $2); }
+                            ^
+In file included from first.y:15:0:
+first.h:22:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *node(int op, struct nnode* left, struct nnode* right);
+               ^
+first.y:33:41: warning: passing argument 3 of ‘node’ makes pointer from integer without a cast [-Wint-conversion]
+          | stmt stmtlist                { $$ =  node(';', $1, $2); }
+                                         ^
+In file included from first.y:15:0:
+first.h:22:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *node(int op, struct nnode* left, struct nnode* right);
+               ^
+first.y:33:15: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+          | stmt stmtlist                { $$ =  node(';', $1, $2); }
+               ^
+first.y:37:29: warning: passing argument 2 of ‘node’ makes pointer from integer without a cast [-Wint-conversion]
+       | PRINT expr                      { $$ = node(PRINT, $2, NNULL); }
+                             ^
+In file included from first.y:15:0:
+first.h:22:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *node(int op, struct nnode* left, struct nnode* right);
+               ^
+first.y:38:51: warning: passing argument 3 of ‘node’ makes pointer from integer without a cast [-Wint-conversion]
+       | VAR '=' expr                    { $$ = node('=', leaf(VAR, $1), $3); }
+                                                   ^
+In file included from first.y:15:0:
+first.h:22:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *node(int op, struct nnode* left, struct nnode* right);
+               ^
+first.y:38:15: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+       | VAR '=' expr                    { $$ = node('=', leaf(VAR, $1), $3); }
+               ^
+first.y:41:15: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+ expr : INT                              { $$ = leaf(INT, $1); }
+               ^
+first.y:42:15: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+     | VAR                               { $$ = leaf(VAR, $1); }
+               ^
+first.y:43:27: warning: passing argument 2 of ‘node’ makes pointer from integer without a cast [-Wint-conversion]
+     | expr '-' expr                     { $$ = node('-', $1, $3); }
+                           ^
+In file included from first.y:15:0:
+first.h:22:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *node(int op, struct nnode* left, struct nnode* right);
+               ^
+first.y:43:40: warning: passing argument 3 of ‘node’ makes pointer from integer without a cast [-Wint-conversion]
+     | expr '-' expr                     { $$ = node('-', $1, $3); }
+                                        ^
+In file included from first.y:15:0:
+first.h:22:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *node(int op, struct nnode* left, struct nnode* right);
+               ^
+first.y:43:15: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+     | expr '-' expr                     { $$ = node('-', $1, $3); }
+               ^
+first.y:44:27: warning: passing argument 2 of ‘node’ makes pointer from integer without a cast [-Wint-conversion]
+     | expr '/' expr                     { $$ = node('/', $1, $3); }
+                           ^
+In file included from first.y:15:0:
+first.h:22:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *node(int op, struct nnode* left, struct nnode* right);
+               ^
+first.y:44:40: warning: passing argument 3 of ‘node’ makes pointer from integer without a cast [-Wint-conversion]
+     | expr '/' expr                     { $$ = node('/', $1, $3); }
+                                        ^
+In file included from first.y:15:0:
+first.h:22:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *node(int op, struct nnode* left, struct nnode* right);
+               ^
+first.y:44:15: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+     | expr '/' expr                     { $$ = node('/', $1, $3); }
+               ^
+first.y:45:27: warning: passing argument 2 of ‘node’ makes pointer from integer without a cast [-Wint-conversion]
+     | expr '*' expr                     { $$ = node('*', $1, $3); }
+                           ^
+In file included from first.y:15:0:
+first.h:22:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *node(int op, struct nnode* left, struct nnode* right);
+               ^
+first.y:45:40: warning: passing argument 3 of ‘node’ makes pointer from integer without a cast [-Wint-conversion]
+     | expr '*' expr                     { $$ = node('*', $1, $3); }
+                                        ^
+In file included from first.y:15:0:
+first.h:22:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *node(int op, struct nnode* left, struct nnode* right);
+               ^
+first.y:45:15: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+     | expr '*' expr                     { $$ = node('*', $1, $3); }
+               ^
+first.y:46:27: warning: passing argument 2 of ‘node’ makes pointer from integer without a cast [-Wint-conversion]
+     | expr '+' expr                     { $$ = node('+', $1, $3); }
+                           ^
+In file included from first.y:15:0:
+first.h:22:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *node(int op, struct nnode* left, struct nnode* right);
+               ^
+first.y:46:40: warning: passing argument 3 of ‘node’ makes pointer from integer without a cast [-Wint-conversion]
+     | expr '+' expr                     { $$ = node('+', $1, $3); }
+                                        ^
+In file included from first.y:15:0:
+first.h:22:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *node(int op, struct nnode* left, struct nnode* right);
+               ^
+first.y:46:15: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+     | expr '+' expr                     { $$ = node('+', $1, $3); }
+               ^
+first.y:47:27: warning: passing argument 2 of ‘node’ makes pointer from integer without a cast [-Wint-conversion]
+     | expr '<' expr                     { $$ = node('<', $1, $3); }
+                           ^
+In file included from first.y:15:0:
+first.h:22:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *node(int op, struct nnode* left, struct nnode* right);
+               ^
+first.y:47:40: warning: passing argument 3 of ‘node’ makes pointer from integer without a cast [-Wint-conversion]
+     | expr '<' expr                     { $$ = node('<', $1, $3); }
+                                        ^
+In file included from first.y:15:0:
+first.h:22:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *node(int op, struct nnode* left, struct nnode* right);
+               ^
+first.y:47:15: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+     | expr '<' expr                     { $$ = node('<', $1, $3); }
+               ^
+first.y:48:27: warning: passing argument 2 of ‘node’ makes pointer from integer without a cast [-Wint-conversion]
+     | expr '>' expr                     { $$ = node('>', $1, $3); }
+                           ^
+In file included from first.y:15:0:
+first.h:22:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *node(int op, struct nnode* left, struct nnode* right);
+               ^
+first.y:48:40: warning: passing argument 3 of ‘node’ makes pointer from integer without a cast [-Wint-conversion]
+     | expr '>' expr                     { $$ = node('>', $1, $3); }
+                                        ^
+In file included from first.y:15:0:
+first.h:22:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *node(int op, struct nnode* left, struct nnode* right);
+               ^
+first.y:48:15: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+     | expr '>' expr                     { $$ = node('>', $1, $3); }
+               ^
+first.y:49:26: warning: passing argument 2 of ‘node’ makes pointer from integer without a cast [-Wint-conversion]
+     | expr LE expr                      { $$ = node(LE, $1, $3); }
+                          ^
+In file included from first.y:15:0:
+first.h:22:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *node(int op, struct nnode* left, struct nnode* right);
+               ^
+first.y:49:39: warning: passing argument 3 of ‘node’ makes pointer from integer without a cast [-Wint-conversion]
+     | expr LE expr                      { $$ = node(LE, $1, $3); }
+                                       ^
+In file included from first.y:15:0:
+first.h:22:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *node(int op, struct nnode* left, struct nnode* right);
+               ^
+first.y:49:15: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+     | expr LE expr                      { $$ = node(LE, $1, $3); }
+               ^
+first.y:50:26: warning: passing argument 2 of ‘node’ makes pointer from integer without a cast [-Wint-conversion]
+     | expr GE expr                      { $$ = node(GE, $1, $3); }
+                          ^
+In file included from first.y:15:0:
+first.h:22:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *node(int op, struct nnode* left, struct nnode* right);
+               ^
+first.y:50:39: warning: passing argument 3 of ‘node’ makes pointer from integer without a cast [-Wint-conversion]
+     | expr GE expr                      { $$ = node(GE, $1, $3); }
+                                       ^
+In file included from first.y:15:0:
+first.h:22:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *node(int op, struct nnode* left, struct nnode* right);
+               ^
+first.y:50:15: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+     | expr GE expr                      { $$ = node(GE, $1, $3); }
+               ^
+first.y:51:26: warning: passing argument 2 of ‘node’ makes pointer from integer without a cast [-Wint-conversion]
+     | expr EQ expr                      { $$ = node(EQ, $1, $3); }
+                          ^
+In file included from first.y:15:0:
+first.h:22:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *node(int op, struct nnode* left, struct nnode* right);
+               ^
+first.y:51:39: warning: passing argument 3 of ‘node’ makes pointer from integer without a cast [-Wint-conversion]
+     | expr EQ expr                      { $$ = node(EQ, $1, $3); }
+                                       ^
+In file included from first.y:15:0:
+first.h:22:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *node(int op, struct nnode* left, struct nnode* right);
+               ^
+first.y:51:15: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+     | expr EQ expr                      { $$ = node(EQ, $1, $3); }
+               ^
+first.y:52:26: warning: passing argument 2 of ‘node’ makes pointer from integer without a cast [-Wint-conversion]
+     | expr NE expr                      { $$ = node(NE, $1, $3); }
+                          ^
+In file included from first.y:15:0:
+first.h:22:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *node(int op, struct nnode* left, struct nnode* right);
+               ^
+first.y:52:39: warning: passing argument 3 of ‘node’ makes pointer from integer without a cast [-Wint-conversion]
+     | expr NE expr                      { $$ = node(NE, $1, $3); }
+                                       ^
+In file included from first.y:15:0:
+first.h:22:15: note: expected ‘struct nnode *’ but argument is of type ‘YYSTYPE {aka int}’
+ struct nnode *node(int op, struct nnode* left, struct nnode* right);
+               ^
+first.y:52:15: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+     | expr NE expr                      { $$ = node(NE, $1, $3); }
+               ^
+y.tab.c:1461:7: warning: implicit declaration of function ‘yyerror’ [-Wimplicit-function-declaration]
+       yyerror (YY_("syntax error"));
+       ^
+first.y: At top level:
+first.y:57:6: warning: conflicting types for ‘yyerror’
+ void yyerror(char* s){
+      ^
+y.tab.c:1461:7: note: previous implicit declaration of ‘yyerror’ was here
+       yyerror (YY_("syntax error"));
+       ^
+first.c: In function ‘nalloc’:
+first.c:6:40: warning: implicit declaration of function ‘malloc’ [-Wimplicit-function-declaration]
+     struct nnode* np = (struct nnode*) malloc(sizeof(struct nnode));
+                                        ^
+first.c:6:40: warning: incompatible implicit declaration of built-in function ‘malloc’
+first.c:6:40: note: include ‘<stdlib.h>’ or provide a declaration of ‘malloc’
+first.c:8:9: warning: implicit declaration of function ‘yyerror’ [-Wimplicit-function-declaration]
+         yyerror("Out of Memory");
+         ^
+first.c: In function ‘freeall’:
+first.c:53:5: warning: implicit declaration of function ‘free’ [-Wimplicit-function-declaration]
+     free(n);
+     ^
+first.c:53:5: warning: incompatible implicit declaration of built-in function ‘free’
+first.c:53:5: note: include ‘<stdlib.h>’ or provide a declaration of ‘free’
